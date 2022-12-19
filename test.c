@@ -1,38 +1,44 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <sys/wait.h>
-#include <string.h>
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<sys/types.h>
+#include<sys/wait.h>
+#include<readline/readline.h>
+#include<readline/history.h>
 void sigintHandler(__attribute__((unused)) int sig_num)
 {
 	signal(SIGINT, sigintHandler);
 	printf("\n");
 }
+
 int main(void)
 {
 	int i, k;
-	size_t l = 0;
-	char *readline = NULL;
+	char* buf;
+
 
 	while (1)
 	{
-		k = getline(&readline, &l, stdin);
 		signal(SIGINT, sigintHandler);
 		if (k == EOF)
 		{
-			free(readline);
 			exit(0);
 		}
-		if (strcmp(readline, "exit\n") == 0)
-		{
-			free(readline);
-			exit(0);
-			break;
-		}
+		
 		i = fork();
 		if (i == 0)
 		{
-			printf("%s",readline);
+			buf = readline("\n>>> ");
+			if (strlen(buf) != 0) {
+				add_history(buf);
+			}
+			if (strcmp(buf, "exit\n") == 0)
+			{
+					exit(0);
+					break;
+			}
+
 		}
 		else
 			wait(&i);
