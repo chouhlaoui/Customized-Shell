@@ -2,21 +2,39 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <sys/wait.h>
-int main() 
+#include <string.h>
+void sigintHandler(__attribute__((unused)) int sig_num)
 {
-int pid_fils;
-int status;
- pid_fils = fork();
+	signal(SIGINT, sigintHandler);
+	printf("\n");
+}
+int main(void)
+{
+	int i, k;
+	size_t l = 0;
+	char *readline = NULL;
 
- if (pid_fils == 0) { /* processus fils */
- char *binaryPath = "/bin/ls";
-   
-  execl(binaryPath, binaryPath, NULL);
-exit(0); } 
-else { /* processus père */
- printf("Pere : PID=%d, PPID=%d, PID fils=%d\n", getpid(),getppid(),pid_fils);
- printf("bye");
- wait(NULL);
- return 0;
- }
+	while (1)
+	{
+		k = getline(&readline, &l, stdin);
+		signal(SIGINT, sigintHandler);
+		if (k == EOF)
+		{
+			free(readline);
+			exit(0);
+		}
+		if (strcmp(readline, "exit\n") == 0)
+		{
+			free(readline);
+			exit(0);
+			break;
+		}
+		i = fork();
+		if (i == 0)
+		{
+			printf("%s",readline);
+		}
+		else
+			wait(&i);
+	}
 }
