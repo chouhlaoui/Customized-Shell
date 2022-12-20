@@ -6,41 +6,52 @@
 #include<sys/wait.h>
 #include<readline/readline.h>
 #include<readline/history.h>
-void sigintHandler(__attribute__((unused)) int sig_num)
-{
-	signal(SIGINT, sigintHandler);
-	printf("\n");
+
+void DealWithSpace(char * line,char * argv[])
+{ 
+    int i=-1;
+    char*  espace = strstr(line, " ");
+    if (espace)
+    {
+        char * token = strtok(line, " ");
+        while( token != NULL ) 
+        {
+            i++;
+            strcpy(argv[i],token);
+            printf( " %s\n", token ); 
+            token = strtok(NULL, " ");
+        }
+    }
 }
 
-int main(void)
+int main()
 {
-	int i, k;
+	int i;
 	char* buf;
-
+	char ** arg;
 
 	while (1)
 	{
-		signal(SIGINT, sigintHandler);
-		if (k == EOF)
-		{
-			exit(0);
-		}
-		
 		i = fork();
 		if (i == 0)
 		{
 			buf = readline("\n>>> ");
 			if (strlen(buf) != 0) {
 				add_history(buf);
-			}
-			if (strcmp(buf, "exit\n") == 0)
-			{
-					exit(0);
+				if (strcmp(buf, "exit") == 0)
+				{
 					break;
-			}
+					exit(1);
+				}
 
+			}
+			
+			
 		}
-		else
-			wait(&i);
+		else{
+				wait(&i);
+			}
+			
+
 	}
 }
