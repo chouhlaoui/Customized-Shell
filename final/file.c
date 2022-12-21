@@ -1,30 +1,15 @@
 #include"file.h"
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
-#include<unistd.h>
-#include<sys/types.h>
-#include<sys/wait.h>
-#include<readline/readline.h>
-#include<readline/history.h>
 
-// Function to take input
-void takeInput(char* str)
+
+void PrintDir()
 {
-	char* buf;
-
-	buf = readline("\n>>> ");
-	if (strlen(buf) != 0) 
-    {
-		add_history(buf);
-		strcpy(str, buf);
-	} 
-    
+	char cwd[1024];
+	getcwd(cwd, sizeof(cwd));
+	printf("\nDir: %s", cwd);
 }
 
-//deja open ;     fp=fopen("filee.txt","r");
 
-int DealWithFiles(FILE *fp)
+void DealWithFiles(FILE *fp)
 {
     char ligne[80];
 
@@ -36,7 +21,7 @@ int DealWithFiles(FILE *fp)
             break;
         }
         printf("%s", ligne);
-        executer(ligne);
+        //executer(ligne);
         
     }
     
@@ -44,14 +29,7 @@ int DealWithFiles(FILE *fp)
     fclose(fp);
 }
   
-void printDir()
-{
-	char cwd[1024];
-	getcwd(cwd, sizeof(cwd));
-	printf("\nDir: %s", cwd);
-}
-
-int delimiterAvecEspace(char* str, char** parsed)
+int DelimiterAvecEspace(char* str, char** parsed)
 {
 	int i=0;
     parsed[i] = strsep(&str, " ");
@@ -63,46 +41,33 @@ int delimiterAvecEspace(char* str, char** parsed)
     return i;
 }
 
-
-// Function to execute builtin commands
-int ownCmdHandler(char** parsed)
+/*Function to take input*/ 
+int TakeInput(char* str)
 {
-	int i, switchOwnArg = 0;
-	char* ListOfOwnCmds[4];
-	char* username;
+	char* buf;
 
-	ListOfOwnCmds[0] = "exit";
-	ListOfOwnCmds[1] = "cd";
-	ListOfOwnCmds[2] = "help";
-	ListOfOwnCmds[3] = "hello";
-
-	for (i = 0; i < 4; i++) {
-		if (strcmp(parsed[0], ListOfOwnCmds[i]) == 0) {
-			switchOwnArg = i + 1;
-			break;
-		}
+	buf = readline("\n>>> ");
+	if (strlen(buf) != 0) {
+		add_history(buf);
+		strcpy(str, buf);
+		return 0;
+	} else {
+		return 1;
 	}
+    
+}
 
-	switch (switchOwnArg) {
-	case 1:
-		printf("\nGoodbye\n");
-		exit(0);
-	case 2:
-		chdir(parsed[1]);
-		return 1;
-	case 3:
-		openHelp();
-		return 1;
-	case 4:
-		username = getenv("USER");
-		printf("\nHello %s.\nMind that this is "
-			"not a place to play around."
-			"\nUse help to know more..\n",
-			username);
-		return 1;
-	default:
-		break;
-	}
+/*Function to find out whether there's a pipe or not */ 
+//cmd1 ; cmd2 ou bien cmd1 && cmd2 ou bien cmd1 || cmd2
+int Composee(char* str)
+{
+	char* buf;
 
-	return 0;
+	buf = readline("\n>>> ");
+	if (strlen(buf) != 0) 
+    {
+		add_history(buf);
+		strcpy(str, buf);
+	} 
+    
 }
