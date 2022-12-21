@@ -36,14 +36,9 @@ int main()
 		if (i == 0)
 		{
 			buf = readline("\n>>> ");
+			
 			if (strlen(buf) != 0) {
 				add_history(buf);
-				if (strcmp(buf, "exit") == 0)
-				{
-					break;
-					exit(1);
-				}
-
 			}
 			
 			
