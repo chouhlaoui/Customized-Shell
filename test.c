@@ -7,22 +7,7 @@
 #include<readline/readline.h>
 #include<readline/history.h>
 
-void DealWithSpace(char * line,char * argv[])
-{ 
-    int i=-1;
-    char*  espace = strstr(line, " ");
-    if (espace)
-    {
-        char * token = strtok(line, " ");
-        while( token != NULL ) 
-        {
-            i++;
-            strcpy(argv[i],token);
-            printf( " %s\n", token ); 
-            token = strtok(NULL, " ");
-        }
-    }
-}
+
 
 int main()
 {

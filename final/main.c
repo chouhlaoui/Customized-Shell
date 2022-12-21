@@ -4,7 +4,7 @@
 #define MAXCOM 1000 // max number per line
 #define MAXLIST 100 // max number of commands to be supported
 
-int main(){
+int main(void){
 char* line;
 int NbCmd;
 char inputString[MAXCOM], *parsedArgs[MAXLIST];

@@ -1,6 +1,4 @@
-//compiled with gcc -o hello -lreadline learn.c 
-
-
+#include"file.h"
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -13,17 +11,7 @@
 #define MAXLIST 100 // max number of commands to be supported
 
 
-int delimiterAvecEspace(char* str, char** parsed)
-{
-	int i=0;
-    parsed[i] = strsep(&str, " ");
-    while (parsed[i] != NULL)
-    {
-       i++;
-       parsed[i] = strsep(&str, " ");
-    }
-    return i;
-}
+
 
 void takeInput(char* str)
 {

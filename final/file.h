@@ -1,5 +1,5 @@
-#ifndef HEADERFILE_H
-#define HEADERFILE_H
+
+
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -13,4 +13,5 @@ void takeInput(char* str); //lire la ligne de commande
 int DealWithFiles(FILE *fp); //open a file
 void printDir(); //afficher l'emplacement actuel
 int delimiterAvecEspace(char* str, char** parsed); //decouper la ligne de commande
-#endif
+
+
