@@ -6,6 +6,9 @@
 #include <sys/wait.h>
 //shih
 int takeInput(char* str);
+int DealWithFiles(FILE *fp);
+void printDir();
+
 
 //mezelt naarach 
 int shell(char *readline);
