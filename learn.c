@@ -1,29 +1,51 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <errno.h>
 
-void delimiter(char *str,char *argv[])
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<sys/types.h>
+#include<sys/wait.h>
+#include<readline/readline.h>
+#include<readline/history.h>
+#define MAXCOM 1000 // max number per line
+#define MAXLIST 100 // max number of commands to be supported
+
+
+int delimiterAvecEspace(char* str, char** parsed)
 {
-    char* found;
-    int i = -1;
-    while( (found = strsep(&str," ")) != NULL )
+	int i=0;
+    parsed[i] = strsep(&str, " ");
+    while (parsed[i] != NULL)
     {
-        i++;
-        strcpy(argv[i],found);
-        printf("%s\n",argv[i]);
-   
+       i++;
+       parsed[i] = strsep(&str, " ");
     }
-
+    return i;
 }
 
+void takeInput(char* str)
+{
+	char* buf;
+
+	buf = readline("\n>>> ");
+	if (strlen(buf) != 0) 
+    {
+		add_history(buf);
+		strcpy(str, buf);
+	} 
+    
+}
 
 int main (void)
 {
- char *argv[]={ (char *) NULL }; 
+int NbCmd;
+char inputString[MAXCOM], *parsedArgs[MAXLIST];
+takeInput(inputString);
  //char * argv[] = { "ls", "-l", "-n", (char *) NULL };
- delimiter(strdup("chou dge jdzv-dh hsdb"),argv);
+NbCmd=delimiterAvecEspace(strdup(inputString),parsedArgs);
+for (int i = 0; i < NbCmd ; i++) {
+		printf("%s\n",parsedArgs[i]);
+	}
  //execvp(argv[0], argv);
  //fprintf(stderr, "Erreur %d\n", errno);
  return 1;

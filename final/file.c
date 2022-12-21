@@ -9,7 +9,7 @@
 #include<readline/history.h>
 
 // Function to take input
-int takeInput(char* str)
+void takeInput(char* str)
 {
 	char* buf;
 
@@ -18,12 +18,8 @@ int takeInput(char* str)
     {
 		add_history(buf);
 		strcpy(str, buf);
-		return 0;
 	} 
-    else 
-    {
-		return 1;
-	}
+    
 }
 
 //deja open ;     fp=fopen("filee.txt","r");
@@ -53,6 +49,18 @@ void printDir()
 	char cwd[1024];
 	getcwd(cwd, sizeof(cwd));
 	printf("\nDir: %s", cwd);
+}
+
+int delimiterAvecEspace(char* str, char** parsed)
+{
+	int i=0;
+    parsed[i] = strsep(&str, " ");
+    while (parsed[i] != NULL)
+    {
+       i++;
+       parsed[i] = strsep(&str, " ");
+    }
+    return i;
 }
 
 
