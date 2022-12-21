@@ -1,5 +1,4 @@
 
-
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -8,10 +7,10 @@
 #include<sys/wait.h>
 #include<readline/readline.h>
 #include<readline/history.h>
-//shih
-void takeInput(char* str); //lire la ligne de commande
-int DealWithFiles(FILE *fp); //open a file
-void printDir(); //afficher l'emplacement actuel
-int delimiterAvecEspace(char* str, char** parsed); //decouper la ligne de commande
+/* shih*/
+int TakeInput(char* str); /* lire la ligne de commande */ 
+void DealWithFiles(FILE *fp); /* open a file */ 
+void PrintDir(); /* afficher l'emplacement actuel */
+int DelimiterAvecEspace(char* str, char** parsed); /* decouper la ligne de commande */
 
 

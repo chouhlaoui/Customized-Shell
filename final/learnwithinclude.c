@@ -7,9 +7,8 @@
 #include<sys/wait.h>
 #include<readline/readline.h>
 #include<readline/history.h>
-#define MAXCOM 1000 // max number per line
-#define MAXLIST 100 // max number of commands to be supported
-
+#define MAXCOM 1000 /* max number per line */ 
+#define MAXLIST 100 /* max number of commands to be supported */ 
 
 
 
@@ -31,12 +30,13 @@ int main (void)
 int NbCmd;
 char inputString[MAXCOM], *parsedArgs[MAXLIST];
 takeInput(inputString);
- //char * argv[] = { "ls", "-l", "-n", (char *) NULL };
-NbCmd=delimiterAvecEspace(strdup(inputString),parsedArgs);
-for (int i = 0; i < NbCmd ; i++) {
+
+ /*char * argv[] = { "ls", "-l", "-n", (char *) NULL };*/
+NbCmd=DelimiterAvecEspace(strdup(inputString),parsedArgs);
+/*for (int i = 0; i < NbCmd ; i++) {
 		printf("%s\n",parsedArgs[i]);
-	}
- //execvp(argv[0], argv);
+	}*/
+ execvp(parsedArgs[0], parsedArgs);
  //fprintf(stderr, "Erreur %d\n", errno);
- return 1;
+ return 0;
 }
