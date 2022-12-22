@@ -56,14 +56,14 @@ void ExecuteOneCommand(char** parsedArgs){
 	int id = fork();
     if (id == 0) 
     {
-		if (execvp(parsedArgs[0], parsedArgs) < 0) {
+		if (execvp(parsedArgs[0], parsedArgs) < 0) 
+        {
 			printf("\nCould not execute command..");
 		}
 		exit(0);
 	} 
     else 
     {
-		// waiting for child to terminate
 		wait(NULL);
 	}
        
@@ -92,8 +92,7 @@ int Composee(char* str)
         else
         {
             return 2;
-        }
-        
+        }  
     }
     else
     {
@@ -107,7 +106,8 @@ void ExecuteAllCommand(char** parsedArgs){
 	int id = fork();
     if (id == 0) 
     {
-		if (execvp(parsedArgs[0], parsedArgs) < 0) {
+		if (execvp(parsedArgs[0], parsedArgs) < 0) 
+        {
 			printf("\nCould not execute command..");
 		}
 		exit(0);
@@ -125,7 +125,8 @@ void ExecuteAndCommands(char** parsedArgs){
 	int id = fork();
     if (id == 0) 
     {
-		if (execvp(parsedArgs[0], parsedArgs) < 0) {
+		if (execvp(parsedArgs[0], parsedArgs) < 0) 
+        {
 			printf("\nCould not execute command..");
 		}
 		exit(0);
@@ -143,7 +144,8 @@ void ExecuteOrCommands(char** parsedArgs){
 	int id = fork();
     if (id == 0) 
     {
-		if (execvp(parsedArgs[0], parsedArgs) < 0) {
+		if (execvp(parsedArgs[0], parsedArgs) < 0) 
+        {
 			printf("\nCould not execute command..");
 		}
 		exit(0);
@@ -172,7 +174,6 @@ int PathHandler(char** parsed)
     else{
         return 0;
 	}
-	
 }
 
 void openHelp(void)

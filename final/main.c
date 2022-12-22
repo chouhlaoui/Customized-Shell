@@ -11,11 +11,11 @@
 #define MAXLIST 100 /* max number of commands to be supported */ 
 
 
-
 int main (void)
 {
 int NbCmd;
 char inputString[MAXCOM], *parsedArgs[MAXLIST];
+
 while (1)
 {
     PrintDir();
@@ -25,35 +25,28 @@ while (1)
         NbCmd=DelimiterAvecEspace(strdup(inputString),parsedArgs);
         if (PathHandler(parsedArgs)==0)
         {
-           switch (Composee(inputString))
-        {
-        case 1:
-            printf(";");
-            break;
-        case 2:
-            printf("||");
-            break;
-        case 3:
-            printf("&&");
-            break;
-        default:
-            ExecuteOneCommand(parsedArgs);
- 	        //fprintf(stderr, "Erreur %d\n", errno);
-            break;
+            switch (Composee(inputString))
+            {
+            case 1:
+                printf(";");
+                break;
+            case 2:
+                printf("||");
+                break;
+            case 3:
+                printf("&&");
+                break;
+            default:
+                ExecuteOneCommand(parsedArgs);
+ 	            //fprintf(stderr, "Erreur %d\n", errno);
+                break;
+            }
         }
-        }
-        
-        
-
-
     }
     else 
     {
         break;
     }
-	
 }
-
-
- return 0;
+return 0;
 }
