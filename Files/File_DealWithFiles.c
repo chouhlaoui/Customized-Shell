@@ -2,7 +2,7 @@
 
 /*deja open ;     fp=fopen("filee.txt","r");*/ 
 
-int DealWithFiles(FILE *fp)
+void DealWithFiles(FILE *fp)
 {
     char ligne[80];
 
@@ -14,12 +14,10 @@ int DealWithFiles(FILE *fp)
             break;
         }
         printf("%s", ligne);
-        executer(ligne);
+        //executer(ligne);
         
     }
     
     printf("\nFINISHED\n");
     fclose(fp);
 }
-  
-

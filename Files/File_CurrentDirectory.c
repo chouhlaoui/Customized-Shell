@@ -1,8 +1,8 @@
 #include"file.h"
 
-void PrintDir()
+void PrintDir(void)
 {
 	char cwd[1024];
 	getcwd(cwd, sizeof(cwd));
-	printf("\nDir: %s", cwd);
+	printf("\n[%s]", cwd);
 }

@@ -8,9 +8,14 @@
 #include<readline/readline.h>
 #include<readline/history.h>
 /* shih*/
-int TakeInput(char* str); /* lire la ligne de commande */ 
+void TakeInput(char* str); /* lire la ligne de commande */ 
 void DealWithFiles(FILE *fp); /* open a file */ 
-void PrintDir(); /* afficher l'emplacement actuel */
+void PrintDir(void); /* afficher l'emplacement actuel */
 int DelimiterAvecEspace(char* str, char** parsed); /* decouper la ligne de commande */
-
-
+void ExecuteOneCommand(char** parsedArgs); /* executer une seule commande */
+int Composee(char* str); /* verifier si la ligne contient une composition de commande */
+void ExecuteAllCommand(char** parsedArgs);
+void ExecuteAndCommands(char** parsedArgs);
+void ExecuteOrCommands(char** parsedArgs);
+int PathHandler(char** parsed);
+void openHelp(void);

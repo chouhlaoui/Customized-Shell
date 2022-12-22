@@ -12,31 +12,23 @@
 
 
 
-void takeInput(char* str)
-{
-	char* buf;
-
-	buf = readline("\n>>> ");
-	if (strlen(buf) != 0) 
-    {
-		add_history(buf);
-		strcpy(str, buf);
-	} 
-    
-}
-
 int main (void)
 {
 int NbCmd;
 char inputString[MAXCOM], *parsedArgs[MAXLIST];
-takeInput(inputString);
+while (1)
+{
 
- /*char * argv[] = { "ls", "-l", "-n", (char *) NULL };*/
-NbCmd=DelimiterAvecEspace(strdup(inputString),parsedArgs);
-/*for (int i = 0; i < NbCmd ; i++) {
+	TakeInput(inputString);
+	NbCmd=DelimiterAvecEspace(strdup(inputString),parsedArgs);
+	for (int i = 0; i < NbCmd ; i++) {
 		printf("%s\n",parsedArgs[i]);
-	}*/
- execvp(parsedArgs[0], parsedArgs);
- //fprintf(stderr, "Erreur %d\n", errno);
+	}
+	printf("%d\n",NbCmd);
+ 	execute(parsedArgs);
+ 	//fprintf(stderr, "Erreur %d\n", errno);
+}
+
+
  return 0;
 }
