@@ -4,8 +4,6 @@
 //cmd1 ; cmd2 ou bien cmd1 && cmd2 ou bien cmd1 || cmd2 */ 
 int Composee(char* str)
 {
-    char* test;
-    test = strsep(&str, ";");
 
     if(strsep(&str, ";") == NULL)
     {

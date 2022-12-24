@@ -4,20 +4,20 @@
 
 void DealWithFiles(FILE *fp)
 {
-    char ligne[80];
-
+    char ligne[MAXLIST];
     while(!feof(fp))
     {
         fgets(ligne, 80, fp);
-        if (strcmp(ligne, "exit\n") == 0)
+        ligne[strlen(ligne)-1] = '\0';
+        if (strcmp(ligne, "quit") == 0)
         {
             break;
         }
-        printf("%s", ligne);
-        //executer(ligne);
+        sleep(2);
+       // printf("%s", ligne);
+        Executing(ligne);
+        printf("\n_______________________________________\n");
         
     }
-    
-    printf("\nFINISHED\n");
     fclose(fp);
 }
