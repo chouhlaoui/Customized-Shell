@@ -170,67 +170,120 @@ void DealWithFiles(FILE *fp)
             break;
         }
         sleep(2);
-       // printf("%s", ligne);
+        printf("%s", ligne);
         Executing(ligne);
-        printf("\n_______________________________________\n");
+        printf("\n_______________________________________________________________\n");
         
     }
     fclose(fp);
 }
-
-void Executing(char* line)
+int verifpipe(char *line)
 {
-    int NbCmd;
-    char *parsedArgs[MAXLIST];
 
-    NbCmd=DelimiterAvecEspace(strdup(line),parsedArgs);
-    
-    if (PathHandler(parsedArgs)==0)
-    {
-        switch (Composee(line))
-        {
-        case 1:
-            printf(";");
-            break;
-        case 2:
-            printf("||");
-            break;  
-        case 3:
-            printf("&&");
-            break;
-        default:
-            ExecuteOneCommand(parsedArgs);
- 	        //fprintf(stderr, "Erreur %d\n", errno);
-            break;
-            }
-        }
 }
 
-int Composee(char* str)
+int verifredirectfile(char *line)
 {
-
-    if(strsep(&str, ";") == NULL)
+    int i=1;
+    while ((line[i]!='\0'))
     {
-        if(strsep(&str, "||") == NULL)
+        if ((line[i-1]=='|')&&(line[i]=='|'))
         {
-            if(strsep(&str, "&&") == NULL)
-            {
-                return 0;
-            }
-            else
-            {
-                return 3;
-            }
+            return 1;
         }
-        else
-        {
-            return 2;
-        }
-        
+        i++;
+    }
+    if (line[i]=='\0')
+    {
+        return 0;
+    }
+}
+
+int verifnext(char *line)
+{
+    int i=0;
+    while ((line[i]!='\0')&&(line[i]!=';'))
+    {
+        i++;
+    }
+    if (line[i]=='\0')
+    {
+        return 0;
     }
     else
     {
         return 1;
     }
+}
+
+int verifor(char *line)
+{
+    int i=1;
+    while ((line[i]!='\0'))
+    {
+        if ((line[i-1]=='|')&&(line[i]=='|'))
+        {
+            return 1;
+        }
+        i++;
+    }
+    if (line[i]=='\0')
+    {
+        return 0;
+    }
+}
+
+int verifand(char *line)
+{
+    int i=1;
+    while ((line[i]!='\0'))
+    {
+        if ((line[i-1]=='&')&&(line[i]=='&'))
+        {
+            return 1;
+        }
+        i++;
+    }
+    if (line[i]=='\0')
+    {
+        return 0;
+    }
+}
+
+
+void Executing(char* line)
+{
+    int NbCmd;
+    char *parsedArgs[MAXLIST];
+    char* h;
+
+    NbCmd=DelimiterAvecEspace(strdup(line),parsedArgs);
+    
+    
+        if(verifnext(line) == 0)
+        {
+            if(verifor(line) == 0)
+            {
+                if(verifand(line) == 0)
+                {
+                    if (PathHandler(parsedArgs)==0)
+                    {
+                    ExecuteOneCommand(parsedArgs);
+                    }
+                }
+                else
+                {
+                    printf("&&");
+                }
+            }   
+            else
+            {
+            printf("||");
+            }
+        }
+        else
+        {
+            printf(";");
+        }           
     
 }

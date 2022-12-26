@@ -1,11 +1,10 @@
 #include"file.h"
 #define MAXCOM 1000 /* max number per line */ 
-#define MAXLIST 100 /* max number of commands to be supported */ 
 
 int main (void)
 {
 int NbCmd;
-char inputString[MAXCOM], *parsedArgs[MAXLIST];
+char inputString[MAXCOM];
 
 while (1)
 {  
@@ -16,11 +15,18 @@ while (1)
         if (IsItFile(inputString)==1)
         {
             FILE *fp=fopen(inputString,"r");
-            DealWithFiles(fp);  
+            if (fp==NULL)
+            {
+                printf("File Not Found ");
+            }
+            else
+            {
+                DealWithFiles(fp);                  
+            }
         }
         else
         {
-            printf("not file");
+            Executing(inputString);
         }
     }
     else

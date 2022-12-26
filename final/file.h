@@ -12,7 +12,7 @@ void TakeInput(char* str); /* lire la ligne de commande */
 void PrintDir(void); /* afficher l'emplacement actuel */
 int DelimiterAvecEspace(char* str, char** parsed); /* decouper la ligne de commande */
 void ExecuteOneCommand(char** parsedArgs); /* executer une seule commande */
-int Composee(char* str); /* verifier si la ligne contient une composition de commande */
+//int Composee(char* str); /* verifier si la ligne contient une composition de commande */
 void ExecuteAllCommand(char** parsedArgs);
 void ExecuteAndCommands(char** parsedArgs);
 void ExecuteOrCommands(char** parsedArgs);
@@ -23,3 +23,8 @@ void openHelp(void);
 int IsItFile(char* line);
 void DealWithFiles(FILE *fp); /* open a file */ 
 void Executing(char* line);
+
+
+int verifnext(char *line);
+int verifand(char *line);
+int verifor(char *line);

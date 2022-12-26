@@ -14,9 +14,9 @@ void DealWithFiles(FILE *fp)
             break;
         }
         sleep(2);
-       // printf("%s", ligne);
+        printf("%s", ligne);
         Executing(ligne);
-        printf("\n_______________________________________\n");
+        printf("\n_____________________________________________________________________________\n");
         
     }
     fclose(fp);

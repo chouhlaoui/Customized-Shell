@@ -6,7 +6,6 @@ cd /Users/mac/Desktop
 cp /Users/mac/Desktop/fichier.txt /Users/mac/Desktop/projet
 ls /Users/mac/Desktop/projet
 mkdir Hey
-quit
-ls
+ls || cd
 rm -d Hey
 cat /Users/mac/Desktop/fichier.txt 
