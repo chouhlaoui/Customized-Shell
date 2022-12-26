@@ -22,12 +22,14 @@ int main()
                 if (execvp("ls", argv2) < 0) 
                 {
 			        printf("\nCould not execute command 2..");
+                    exit(0);
     		    }
             }
             else 
             {
                 wait(NULL);
 	        }
+            exit(0);
         }
 	} 
     while (wait(NULL)!= -1 || errno != ECHILD );
