@@ -16,7 +16,6 @@ int main()
     if (p1 == 0) {
         
 		if (execvp(argv[0],argv) < 0) {
-			printf("\nCould not execute command 1..");
             p2 = fork();
             if (p2 == 0) 
             {
