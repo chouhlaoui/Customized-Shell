@@ -1,4 +1,6 @@
 /* Compiled : gcc -o Main -lreadline Main.c File_*.c */
+/* Compiled : gcc -o Main Main.c File_*.c -lreadline*/ //windows
+
 #include"file.h"
 
 int main (void)
