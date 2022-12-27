@@ -1,32 +1,75 @@
 #include "file.h" 
 
-/*Function to find out whether there's a pipe or not 
-//cmd1 ; cmd2 ou bien cmd1 && cmd2 ou bien cmd1 || cmd2 */ 
-int Composee(char* str)
-{
 
-    if(strsep(&str, ";") == NULL)
+int verifpipe(char *line)
+{
+return 0;
+}
+
+int verifredirectfile(char *line)
+{
+    int i=1;
+    while ((line[i]!='\0'))
     {
-        if(strsep(&str, "||") == NULL)
+        if ((line[i-1]=='|')&&(line[i]=='|'))
         {
-            if(strsep(&str, "&&") == NULL)
-            {
-                return 0;
-            }
-            else
-            {
-                return 3;
-            }
+            return 1;
         }
-        else
-        {
-            return 2;
-        }
-        
+        i++;
+    }
+    if (line[i]=='\0')
+    {
+        return 0;
+    }
+}
+
+int verifnext(char *line)
+{
+    int i=0;
+    while ((line[i]!='\0')&&(line[i]!=';'))
+    {
+        i++;
+    }
+    if (line[i]=='\0')
+    {
+        return 0;
     }
     else
     {
         return 1;
     }
-    
+}
+
+int verifor(char *line)
+{
+    int i=1;
+    while ((line[i]!='\0'))
+    {
+        if ((line[i-1]=='|')&&(line[i]=='|'))
+        {
+            return 1;
+        }
+        i++;
+    }
+    if (line[i]=='\0')
+    {
+        return 0;
+    }
+}
+
+int verifand(char *line)
+{
+    int i=1;
+    while ((line[i]!='\0'))
+    {
+        if ((line[i-1]=='&')&&(line[i]=='&'))
+        {
+            return 1;
+        }
+        i++;
+    }
+    if (line[i]=='\0')
+    {
+        return 0;
+    }
 }

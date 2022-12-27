@@ -4,7 +4,7 @@
 
 void DealWithFiles(FILE *fp)
 {
-    char ligne[MAXLIST];
+    char ligne[LineLength];
     while(!feof(fp))
     {
         fgets(ligne, 80, fp);

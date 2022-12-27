@@ -1,14 +1,36 @@
-#include"file.h"
-//Execute cmd1&&cmd2
-void ExecuteAndCommands(char** parsedArgs){
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include <unistd.h>
+
+int PathHandler(char** parsed)
+{
+	if (strcmp(parsed[0], "cd") == 0) 
+    {
+		if (chdir(parsed[1])==-1)
+		{
+			return -1;
+		}
+		
+		return 1;
+	}
+    else if (strcmp(parsed[0], "help") == 0) 
+    {
+				printf(" HELB \n");
+
+		return 1;
+	}
+    else{
+        return 0;
+	}
+	
+}
+int main()
+{
 	int p1, p2;
     int fd[2];
-
-	char *CommandOne[LineLength] ;
-    char *CommandTwo[LineLength];
-	ParseSimple(strdup(parsedArgs[0]),CommandOne," ");
-	ParseSimple(strdup(parsedArgs[1]),CommandTwo," ");
-    printf(" %s %s ",CommandOne[0],CommandTwo[0]);
+    char * CommandOne[] = { "help", (char *) NULL };
+    char * CommandTwo[] = { "cd","/Users/mac/Desktop/projet/", (char *) NULL };
 
     if (pipe(fd) < 0) 
     {
@@ -20,12 +42,14 @@ void ExecuteAndCommands(char** parsedArgs){
 	if (p1 < 0) 
     {
 		printf("\nCould not fork");
+        exit(1);
 	}
     
     if (p1 == 0) 
     {
         close(fd[0]);
         int x;
+
 		if (strcmp(CommandOne[0],"cd")==0)
         {
             if (PathHandler(CommandOne)==-1)
@@ -35,13 +59,11 @@ void ExecuteAndCommands(char** parsedArgs){
                 close(fd[1]);
 			    exit(1);
             }
-			exit(0);
         }
 
         else if (strcmp(CommandOne[0],"help")==0)
         {
-            PathHandler(CommandOne);
-			exit(0); 
+            PathHandler(CommandOne); 
         }
 
         else
@@ -93,6 +115,7 @@ void ExecuteAndCommands(char** parsedArgs){
                     if (PathHandler(CommandTwo)==-1)
                     {   
                         printf("\nCould not execute command 2");
+                        return 1;
                     }
 
                     char ch[100];
@@ -110,6 +133,7 @@ void ExecuteAndCommands(char** parsedArgs){
                     if (execvp(CommandTwo[0], CommandTwo) < 0) 
                     {
 				        printf("\nCould not execute command 2..");
+				        exit(1);
 			        }
 		        }
             }

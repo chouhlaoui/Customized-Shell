@@ -1,44 +1,37 @@
 /* Compiled : gcc -o Main -lreadline Main.c File_*.c */
 /* Compiled : gcc -o Main Main.c File_*.c -lreadline*/ //windows
-
 #include"file.h"
 
 int main (void)
 {
 int NbCmd;
-char inputString[MAXCOM], *parsedArgs[MAXLIST];
+char inputString[LineLength];
 
 while (1)
-{
+{  
     PrintDir();
 	TakeInput(inputString);
     if(strcmp(inputString,"quit")!=0)
     {
-        NbCmd=DelimiterAvecEspace(strdup(inputString),parsedArgs);
-        if (PathHandler(parsedArgs)==0)
+        if (IsItFile(inputString)==1)
         {
-            switch (Composee(inputString))
+            FILE *fp=fopen(inputString,"r");
+            if (fp==NULL)
             {
-            case 1:
-                printf(";");
-                break;
-            case 2:
-                printf("||");
-                break;
-            case 3:
-                printf("&&");
-                break;
-            default:
-                ExecuteOneCommand(parsedArgs);
- 	            //fprintf(stderr, "Erreur %d\n", errno);
-                break;
+                printf("File Not Found ");
+            }
+            else
+            {
+                DealWithFiles(fp);                  
             }
         }
+        else
+        {
+            Executing(inputString);
+        }
     }
-    else 
-    {
+    else
         break;
-    }
 }
 return 0;
 }
