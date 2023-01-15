@@ -7,7 +7,7 @@
 int main()
 {
     int p1;
-    char * argv[] = { "ls", (char *) NULL };
+    char * argv[] = { "c","..", (char *) NULL };
 
     p1 = fork();
     
@@ -20,7 +20,7 @@ int main()
     {
         int fd,file;
     
-        fd = open("collectio",O_WRONLY | O_CREAT,0777);
+        fd = open("collection.txt",O_WRONLY | O_CREAT,0777);
 
         if (fd == -1)
         {

@@ -32,7 +32,7 @@ int main()
         if (execvp(argv[0], argv) < 0) 
         {
 			printf("\nCould not execute command 1..");
-            Exit(1);
+            exit(1);
 		}
         
 	} 
@@ -50,7 +50,7 @@ int main()
         if (execvp(argv2[0], argv2) < 0) 
         {
 			printf("\nCould not execute command 1..");
-            Exit(1);
+            xit(1);
 		}
         
 	} 

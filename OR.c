@@ -19,7 +19,7 @@ int main()
             p2 = fork();
             if (p2 == 0) 
             {
-                if (execvp("ls", argv2) < 0) 
+                if (execvp(argv2[0], argv2) < 0) 
                 {
 			        printf("\nCould not execute command 2..");
                     exit(0);

@@ -9,7 +9,7 @@ int main()
 	int p1, p2;
     int fd[2];
     char * argv[] = { "pwd", (char *) NULL };
-    char * argv2[] = { "ls","/Users/mac/Desktop/projet/", (char *) NULL };
+    char * argv2[] = { "cd","/Users/mac/Desktop/projet/", (char *) NULL };
     if (pipe(fd) < 0) {
 		printf("\nPipe could not be initialized");
 	}
@@ -40,6 +40,9 @@ int main()
 		{
 			y=1;
 		}
+		char ch[100];
+                    getcwd(ch,100);
+                    printf("Current Path : %s \n",ch);
 		
 		close(fd[0]);
 		// Parent executing

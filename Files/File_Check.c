@@ -7,6 +7,9 @@ int IsItFile(char* line)
     } 
     else
     {
-        return 1;
+        if (strstr(line, ">") == NULL){
+            return 1;
+        }
+        return 0;
     }
 }

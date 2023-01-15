@@ -9,7 +9,6 @@ int PathHandler(char** parsed)
 		{
 			return -1;
 		}
-		
 		return 1;
 	}
     else if (strcmp(parsed[0], "help") == 0) 

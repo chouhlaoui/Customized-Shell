@@ -7,11 +7,9 @@ void ExecuteOneCommand(char** parsedArgs){
 		if (execvp(parsedArgs[0], parsedArgs) < 0) {
 			printf("\nCould not execute command..");
 		}
-		exit(0);
 	} 
     else 
     {
-		// waiting for child to terminate
 		wait(NULL);
 	}
        

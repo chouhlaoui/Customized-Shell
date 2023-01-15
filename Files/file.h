@@ -1,4 +1,4 @@
-
+#include <errno.h>
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -7,16 +7,21 @@
 #include<sys/wait.h>
 #include<readline/readline.h>
 #include<readline/history.h>
+#include <errno.h>
+#include <fcntl.h>
+
 #define LineLength 1000/* max number per line */ 
 
 /* shih*/
-void TakeInput(char* str); /* lire la ligne de commande */ 
-void PrintDir(void); /* afficher l'emplacement actuel */
-int ParseSimple(char* str, char** parsed,char* delim); /* decouper la ligne de commande */
-void ExecuteOneCommand(char** parsedArgs); /* executer une seule commande */
+void TakeInput(char* str); 
+void PrintDir(void); 
+int ParseSimple(char* str, char** parsed,char* delim); 
+void ExecuteOneCommand(char** parsedArgs); 
 void ExecuteAllCommand(char** parsedArgs);
 void ExecuteAndCommands(char** parsedArgs);
 void ExecuteOrCommands(char** parsedArgs);
+void ExecuteRedirected(char** parsedArgs);
+void ExecutePiped(char** parsedArgs);
 int PathHandler(char** parsed);
 void openHelp(void);
 
@@ -25,9 +30,9 @@ int IsItFile(char* line);
 void DealWithFiles(FILE *fp); /* open a file */ 
 void Executing(char* line);
 
-//Verifier
-int verifpipe(char *line);
-int verifredirectfile(char *line);
-int verifnext(char *line);
-int verifor(char *line);
-int verifand(char *line);
+//Check
+int CheckPipe(char *line);
+int CheckRedirectFile(char *line);
+int CheckNext(char *line);
+int CheckOr(char *line);
+int CheckAnd(char *line);

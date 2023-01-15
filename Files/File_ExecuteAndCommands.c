@@ -8,7 +8,6 @@ void ExecuteAndCommands(char** parsedArgs){
     char *CommandTwo[LineLength];
 	ParseSimple(strdup(parsedArgs[0]),CommandOne," ");
 	ParseSimple(strdup(parsedArgs[1]),CommandTwo," ");
-    printf(" %s %s ",CommandOne[0],CommandTwo[0]);
 
     if (pipe(fd) < 0) 
     {
@@ -16,7 +15,7 @@ void ExecuteAndCommands(char** parsedArgs){
 	}
 
     p1 = fork();
-    
+
 	if (p1 < 0) 
     {
 		printf("\nCould not fork");

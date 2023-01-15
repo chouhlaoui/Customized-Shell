@@ -1,13 +1,12 @@
 #include"file.h"
 
-/*deja open ;     fp=fopen("filee.txt","r");*/ 
 
 void DealWithFiles(FILE *fp)
 {
     char ligne[LineLength];
     while(!feof(fp))
     {
-        fgets(ligne, 80, fp);
+        fgets(ligne, 100, fp);
         ligne[strlen(ligne)-1] = '\0';
         if (strcmp(ligne, "quit") == 0)
         {
@@ -17,7 +16,6 @@ void DealWithFiles(FILE *fp)
         printf("%s", ligne);
         Executing(ligne);
         printf("\n_____________________________________________________________________________\n");
-        
     }
     fclose(fp);
 }
