@@ -1,0 +1,18 @@
+cd ..
+ls
+quit
+cd ..
+ls
+cd .. && ls
+History
+ls
+cd ..
+History
+quit
+
+ls |
+ls &&
+ls &&
+ls && 
+ls &&
+ls &&

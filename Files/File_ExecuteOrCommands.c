@@ -1,19 +1,13 @@
 #include"file.h"
-//Execute cmd1||cmd2
 void ExecuteOrCommands(char** parsedArgs){
 
 	int p1, p2;
-    int fd[2];
 
 	char *CommandOne[LineLength] ;
     char *CommandTwo[LineLength];
+
 	ParseSimple(strdup(parsedArgs[0]),CommandOne," ");
 	ParseSimple(strdup(parsedArgs[1]),CommandTwo," ");
-
-    if (pipe(fd) < 0) 
-    {
-		printf("\nPipe could not be initialized");
-	}
 
     p1 = fork();
 
@@ -25,7 +19,7 @@ void ExecuteOrCommands(char** parsedArgs){
             {
                 if (execvp(CommandTwo[0], CommandTwo) < 0) 
                 {
-			        printf("\nCould not execute command 2..");
+			        printf("\nCould not execute any command ..");
                     exit(0);
     		    }
             }

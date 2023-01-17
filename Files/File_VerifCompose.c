@@ -3,7 +3,8 @@
 
 int CheckPipe(char *line)
 {
-   int i=1;
+    int i=1;
+
     while ((line[i]!='\0'))
     {
         if ((line[i-1]!='|')&&(line[i]=='|'))
@@ -12,6 +13,7 @@ int CheckPipe(char *line)
         }
         i++;
     }
+
     if (line[i]=='\0')
     {
         return 0;
@@ -21,6 +23,7 @@ int CheckPipe(char *line)
 int CheckRedirectFile(char *line)
 {
     int i=1;
+
     while ((line[i]!='\0'))
     {
         if (line[i]=='>')
@@ -29,6 +32,7 @@ int CheckRedirectFile(char *line)
         }
         i++;
     }
+
     if (line[i]=='\0')
     {
         return 0;
@@ -38,10 +42,12 @@ int CheckRedirectFile(char *line)
 int CheckNext(char *line)
 {
     int i=0;
+
     while ((line[i]!='\0')&&(line[i]!=';'))
     {
         i++;
     }
+
     if (line[i]=='\0')
     {
         return 0;
@@ -55,6 +61,7 @@ int CheckNext(char *line)
 int CheckOr(char *line)
 {
     int i=1;
+
     while ((line[i]!='\0'))
     {
         if ((line[i-1]=='|')&&(line[i]=='|'))
@@ -63,6 +70,7 @@ int CheckOr(char *line)
         }
         i++;
     }
+
     if (line[i]=='\0')
     {
         return 0;
@@ -72,6 +80,7 @@ int CheckOr(char *line)
 int CheckAnd(char *line)
 {
     int i=1;
+
     while ((line[i]!='\0'))
     {
         if ((line[i-1]=='&')&&(line[i]=='&'))
@@ -80,6 +89,7 @@ int CheckAnd(char *line)
         }
         i++;
     }
+    
     if (line[i]=='\0')
     {
         return 0;

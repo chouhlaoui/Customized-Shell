@@ -1,11 +1,12 @@
 #include"file.h"
-//Execute cmd1&&cmd2
+
 void ExecuteAndCommands(char** parsedArgs){
 	int p1, p2;
     int fd[2];
 
 	char *CommandOne[LineLength] ;
     char *CommandTwo[LineLength];
+
 	ParseSimple(strdup(parsedArgs[0]),CommandOne," ");
 	ParseSimple(strdup(parsedArgs[1]),CommandTwo," ");
 
@@ -23,18 +24,18 @@ void ExecuteAndCommands(char** parsedArgs){
     
     if (p1 == 0) 
     {
+        int CommandState;
+        
         close(fd[0]);
-        int x;
 		if (strcmp(CommandOne[0],"cd")==0)
         {
             if (PathHandler(CommandOne)==-1)
             {
-                x=0;
-                write(fd[1],&x,sizeof(x));
+                CommandState = 0;
+                write(fd[1],&CommandState,sizeof(CommandState));
                 close(fd[1]);
 			    exit(1);
             }
-			exit(0);
         }
 
         else if (strcmp(CommandOne[0],"help")==0)
@@ -47,8 +48,8 @@ void ExecuteAndCommands(char** parsedArgs){
         {
             if (execvp(CommandOne[0], CommandOne) < 0) 
             {
-            x=0;
-            write(fd[1],&x,sizeof(x));
+            CommandState = 0;
+            write(fd[1],&CommandState,sizeof(CommandState));
             close(fd[1]);
 			exit(1);
 		    }
@@ -58,17 +59,17 @@ void ExecuteAndCommands(char** parsedArgs){
     else {
 		wait(NULL);
 
-		int y=1;
+		int ReceivedState = 1;
         close(fd[1]);
 
-		if (read(fd[0],&y,sizeof(y))==-1)
+		if (read(fd[0],&ReceivedState,sizeof(ReceivedState))==-1)
 		{
-			y=1;
+			ReceivedState=1;
 		}
 
 		close(fd[0]);
         
-        if(y == 1)
+        if(ReceivedState == 1)
         {
             p2 = fork();
 

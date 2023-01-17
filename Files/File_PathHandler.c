@@ -1,6 +1,5 @@
 #include"file.h"
 
-// Exexute Help and cd
 int PathHandler(char** parsed)
 {
 	if (strcmp(parsed[0], "cd") == 0) 
@@ -16,7 +15,8 @@ int PathHandler(char** parsed)
 		openHelp();
 		return 1;
 	}
-    else{
+    else
+	{
         return 0;
 	}
 	

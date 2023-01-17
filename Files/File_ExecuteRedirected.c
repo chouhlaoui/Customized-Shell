@@ -8,15 +8,15 @@ void ExecuteRedirected(char** parsedArgs){
 	ParseSimple(strdup(parsedArgs[0]),Command," ");
 	ParseSimple(strdup(parsedArgs[1]),SavingFile," ");
 
-	if (p < 0) 
+    p = fork();
+
+    if (p < 0) 
     {
 		printf("\nCould not fork");
 	}
 
-    p = fork();
-
-	if (p == 0) {
-        
+	if (p == 0) 
+    {
         int File,RedirectedFile;
     
         File = open(SavingFile[0],O_WRONLY | O_CREAT,0777);
@@ -29,7 +29,8 @@ void ExecuteRedirected(char** parsedArgs){
         RedirectedFile = dup2(File,STDOUT_FILENO);
         close(File);
         
-		if (execvp(Command[0],Command) < 0) {
+		if (execvp(Command[0],Command) < 0) 
+        {
 
 			printf("\nCould not execute command 2..");
             exit(1);

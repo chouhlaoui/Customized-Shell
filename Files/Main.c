@@ -11,27 +11,34 @@ while (1)
 {  
     PrintDir();
 	TakeInput(inputString);
+
     if(strcmp(inputString,"quit")!=0)
     {
-        if (IsItFile(inputString)==1)
+        if(strcmp(inputString,"History")!=0)
         {
-            FILE *fp=fopen(inputString,"r");
-            if (fp==NULL)
+            if (IsItFile(inputString)==1)
             {
-                printf("File Not Found ");
+                FILE *fp=fopen(inputString,"r");
+                if (fp==NULL)
+                {
+                    printf("File Not Found ");
+                }
+                else
+                {
+                    DealWithFiles(fp);                  
+                }
             }
             else
             {
-                DealWithFiles(fp);                  
+                Executing(inputString);
             }
         }
         else
         {
-            Executing(inputString);
+            ShowHistory();
         }
     }
     else
         break;
 }
-return 0;
 }

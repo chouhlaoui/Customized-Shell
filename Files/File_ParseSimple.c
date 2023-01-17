@@ -1,7 +1,5 @@
 #include"file.h"
 
-// delimiter avec  >, && , ; et espace 
-
 int ParseSimple(char* str, char** parsed,char* delim)
 {
 	int i=0;
@@ -19,5 +17,4 @@ int ParseSimple(char* str, char** parsed,char* delim)
     return i;
 }
 
-// parse | et || a faire seule
 
