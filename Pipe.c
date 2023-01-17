@@ -6,7 +6,7 @@
 
 int main()
 {
-	int p1, p2,file;
+	int p1, p2;
     int fd[2];
 
     if (pipe(fd) < 0) 
@@ -14,8 +14,8 @@ int main()
 		printf("\nPipe could not be initialized");
 	}
 
-    char * argv[] = { "cd","final", (char *) NULL };
-    char * argv2[] = { "ls", (char *) NULL };
+    char * argv[] = { "cat","t.bash", NULL };
+    char * argv2[] = { "sort", NULL };
    
     p1 = fork();
     
@@ -36,30 +36,28 @@ int main()
 		}
         
 	} 
-    p2=fork();
-    if (p2 < 0) {
-		printf("\nCould not fork");
-	}
+    else{
+        wait(NULL);
+        p2=fork();
+        if (p2 < 0) {
+		    printf("\nCould not fork");
+	    }
 
-    if (p2 == 0) 
-    {
-        dup2(fd[0],STDIN_FILENO);
-        close(fd[1]);
-        close(fd[0]);
-
-        if (execvp(argv2[0], argv2) < 0) 
+        if (p2 == 0) 
         {
-			printf("\nCould not execute command 1..");
-            xit(1);
-		}
-        
-	} 
+            dup2(fd[0],STDIN_FILENO);
+            close(fd[1]);
+            close(fd[0]);
 
+            if (execvp(argv2[0], argv2) < 0) 
+            {
+			    printf("\nCould not execute the piping command ..");
+                exit(1);
+		    }
+	    } 
+    }
 
     close(fd[1]);
     close(fd[0]);
-    waitpid(p1,NULL,0);
-    waitpid(p2,NULL,0);
-    return 0;
     
 }

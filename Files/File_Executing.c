@@ -36,7 +36,7 @@ void Executing(char* line)
                 else
                 {
                     NbCmd=ParseSimple(strdup(line),parsedArgs,"|");
-                    ExecuteAndCommands(parsedArgs);
+                    ExecutePiped(parsedArgs);
                 }
             }
             else

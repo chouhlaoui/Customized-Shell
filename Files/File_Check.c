@@ -7,7 +7,7 @@ int IsItFile(char* line)
     } 
     else
     {
-        if (strstr(line, ">") == NULL){
+        if ((strstr(line, ">") == NULL) && (strstr(line, ";") == NULL)&&(strstr(line, "&&") == NULL) && (strstr(line, "|") == NULL)){
             return 1;
         }
         return 0;
