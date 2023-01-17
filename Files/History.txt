@@ -9,10 +9,3 @@ ls
 cd ..
 History
 quit
-
-ls |
-ls &&
-ls &&
-ls && 
-ls &&
-ls &&
