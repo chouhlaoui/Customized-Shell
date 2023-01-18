@@ -1,6 +1,6 @@
 #include"file.h"
 
-void TakeInput(char* str)
+int TakeInput(char* str)
 {
 	char* buf;
 
@@ -20,5 +20,12 @@ void TakeInput(char* str)
 		fputs("\n", fp) ;
 		fputs(buf,fp);	
 		fclose(fp);
+
+		return 0;
 	} 
+
+	else
+	{
+		return 1;
+	}
 }

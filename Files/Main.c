@@ -1,5 +1,4 @@
-/* Compiled : gcc -o Main -lreadline Main.c File_*.c */
-/* Compiled : gcc -o Main Main.c File_*.c -lreadline*/ //windows
+
 #include"file.h"
 
 int main (void)
@@ -10,7 +9,8 @@ char inputString[LineLength];
 while (1)
 {  
     PrintDir();
-	TakeInput(inputString);
+    if (TakeInput(inputString))
+			continue;
 
     if(strcmp(inputString,"quit")!=0)
     {
@@ -29,7 +29,8 @@ while (1)
                 }
             }
             else
-            {
+            {   
+                
                 Executing(inputString);
             }
         }

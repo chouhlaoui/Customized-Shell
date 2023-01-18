@@ -3,7 +3,7 @@
 
 int CheckPipe(char *line)
 {
-    int i=1;
+    int i = 1;
 
     while ((line[i]!='\0'))
     {
@@ -22,7 +22,7 @@ int CheckPipe(char *line)
 
 int CheckRedirectFile(char *line)
 {
-    int i=1;
+    int i = 1;
 
     while ((line[i]!='\0'))
     {
@@ -41,7 +41,7 @@ int CheckRedirectFile(char *line)
 
 int CheckNext(char *line)
 {
-    int i=0;
+    int i = 0;
 
     while ((line[i]!='\0')&&(line[i]!=';'))
     {
@@ -60,7 +60,7 @@ int CheckNext(char *line)
 
 int CheckOr(char *line)
 {
-    int i=1;
+    int i = 1;
 
     while ((line[i]!='\0'))
     {
@@ -79,7 +79,7 @@ int CheckOr(char *line)
 
 int CheckAnd(char *line)
 {
-    int i=1;
+    int i = 1;
 
     while ((line[i]!='\0'))
     {

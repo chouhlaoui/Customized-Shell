@@ -1,6 +1,7 @@
 #include"file.h"
-void ExecuteRedirected(char** parsedArgs){
-
+void ExecuteRedirected(char** parsedArgs,int N){
+if(N==2)
+{
 	int p;
 	char *Command[LineLength] ;
     char *SavingFile[LineLength];
@@ -32,12 +33,15 @@ void ExecuteRedirected(char** parsedArgs){
 		if (execvp(Command[0],Command) < 0) 
         {
 
-			printf("\nCould not execute command 2..");
+			printf("\nCould not execute command ..");
             exit(1);
 
         }
 	} 
     while (wait(NULL)!= -1 || errno != ECHILD );
-    
+}
+else{
+    printf("An inadequate number of arguments in the command prompt");
+}   
        
 }  

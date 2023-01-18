@@ -1,6 +1,8 @@
 #include"file.h"
-void ExecuteOrCommands(char** parsedArgs){
+void ExecuteOrCommands(char** parsedArgs,int N){
 
+if(N==2)
+{
 	int p1, p2;
 
 	char *CommandOne[LineLength] ;
@@ -31,6 +33,9 @@ void ExecuteOrCommands(char** parsedArgs){
         }
 	} 
     while (wait(NULL)!= -1 || errno != ECHILD );
-    
+}  
+else{
+    printf("An inadequate number of arguments in the command prompt");
+}    
        
 }  

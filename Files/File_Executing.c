@@ -27,34 +27,39 @@ void Executing(char* line)
                             printf("Wrong Path ");
                         }
                     }
+
                     else
                     {
                         NbCmd=ParseSimple(strdup(line),parsedArgs,">");
-                        ExecuteRedirected(parsedArgs);
+                        ExecuteRedirected(parsedArgs,NbCmd);
                     }
                 }
+
                 else
                 {
                     NbCmd=ParseSimple(strdup(line),parsedArgs,"|");
-                    ExecutePiped(parsedArgs);
+                    ExecutePiped(parsedArgs,NbCmd);
                 }
             }
+
             else
             {
                 NbCmd=ParseSimple(strdup(line),parsedArgs,"&&");
-                ExecuteAndCommands(parsedArgs);
+                ExecuteAndCommands(parsedArgs,NbCmd);
             }
-        }   
+        }  
+         
         else
         {
             NbCmd=ParseSimple(strdup(line),parsedArgs,"||");
-            ExecuteOrCommands(parsedArgs);
+            ExecuteOrCommands(parsedArgs,NbCmd);
         }
     }
+
     else
     {
         NbCmd=ParseSimple(strdup(line),parsedArgs,";");
-        ExecuteAllCommand(parsedArgs);
+        ExecuteAllCommand(parsedArgs,NbCmd);
     }           
     
 }

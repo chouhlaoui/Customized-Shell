@@ -1,6 +1,6 @@
 Compile:   
 	gcc -o Main -lreadline Main.c File_*.c
-run:
+Run:
 	./Main
 Reset:
 	rm Main

@@ -1,6 +1,9 @@
 #include"file.h"
 
-void ExecuteAndCommands(char** parsedArgs){
+void ExecuteAndCommands(char** parsedArgs,int N){
+
+if(N==2)
+{
 	int p1, p2;
     int fd[2];
 
@@ -124,5 +127,9 @@ void ExecuteAndCommands(char** parsedArgs){
         }
 	}
 
-    
+}  
+else{
+    printf("An inadequate number of arguments in the command prompt");
+}
+
 }

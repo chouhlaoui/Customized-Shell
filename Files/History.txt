@@ -9,3 +9,21 @@ ls
 cd ..
 History
 quit
+nono Test.txt
+nano Test.txt
+pwd ;
+pwd ;
+cd .. ;
+cd ;
+; cd
+cd .. &&
+&& cd ..
+quit
+ls ; pwd
+cd ..
+cd
+ls 
+ls &&
+quit
+ls |
+ls | wc

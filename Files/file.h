@@ -12,22 +12,26 @@
 
 #define LineLength 1000
 
-void TakeInput(char* str); 
 void PrintDir(void); 
+int TakeInput(char* str); 
 int ParseSimple(char* str, char** parsed,char* delim); 
-void ExecuteOneCommand(char** parsedArgs); 
-void ExecuteAllCommand(char** parsedArgs);
-void ExecuteAndCommands(char** parsedArgs);
-void ExecuteOrCommands(char** parsedArgs);
-void ExecuteRedirected(char** parsedArgs);
-void ExecutePiped(char** parsedArgs);
+
 int PathHandler(char** parsed);
 void openHelp(void);
+void ShowHistory(void);
 
 
 int IsItFile(char* line);
-void DealWithFiles(FILE *fp); 
+void DealWithFiles(FILE *fp);
+
+
 void Executing(char* line);
+void ExecuteOneCommand(char** parsedArgs); 
+void ExecuteAllCommand(char** parsedArgs,int n);
+void ExecuteAndCommands(char** parsedArgs,int N);
+void ExecuteOrCommands(char** parsedArgs,int N);
+void ExecuteRedirected(char** parsedArgs,int N);
+void ExecutePiped(char** parsedArgs,int N);
 
 
 int CheckPipe(char *line);
@@ -36,5 +40,4 @@ int CheckNext(char *line);
 int CheckOr(char *line);
 int CheckAnd(char *line);
 
-void ShowHistory(void);
 

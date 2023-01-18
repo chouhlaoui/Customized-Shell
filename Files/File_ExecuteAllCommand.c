@@ -1,7 +1,9 @@
 #include"file.h"
 
-void ExecuteAllCommand(char** parsedArgs){
+void ExecuteAllCommand(char** parsedArgs,int N){
 
+if(N==2)
+{
 	int p1, p2;
 
 	char *CommandOne[LineLength] ;
@@ -42,8 +44,11 @@ void ExecuteAllCommand(char** parsedArgs){
             {
                 wait(NULL);
 	        }
-	}    
-
+	}  
+}  
+else{
+	printf("An inadequate number of arguments in the command prompt");
+}
 
 }
 

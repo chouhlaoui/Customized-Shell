@@ -1,11 +1,12 @@
 #include"file.h"
 
-void ExecutePiped(char** parsedArgs) 
+void ExecutePiped(char** parsedArgs,int N)
 {
-
+if(N==2)
+{
 	int p1, p2;
     int fd[2];
-    int fp[2]; // pour ne pas executer pipe si la commande n'est pas executer
+
     char *CommandOne[LineLength] ;
     char *CommandTwo[LineLength];
 
@@ -61,5 +62,8 @@ void ExecutePiped(char** parsedArgs)
     close(fd[0]);
     waitpid(p1,NULL,0);
     waitpid(p2,NULL,0);
-    
+}
+else{
+    printf("An inadequate number of arguments in the command prompt");
+}   
 }
