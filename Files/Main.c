@@ -9,9 +9,10 @@ char inputString[LineLength];
 while (1)
 {  
     PrintDir();
-    if (TakeInput(inputString))
-			continue;
-
+    if (TakeInput(inputString)){
+        continue;
+    }
+			
     if(strcmp(inputString,"quit")!=0)
     {
         if(strcmp(inputString,"History")!=0)
@@ -40,6 +41,8 @@ while (1)
         }
     }
     else
+    {
         break;
+    }
 }
 }

@@ -27,3 +27,227 @@ ls &&
 quit
 ls |
 ls | wc
+cd ..
+clear
+History
+pwd
+ls .. && pwd
+cd .. && pwd
+cd .. && cd /Users/mac/Desktop/projet/Interpreteur-De-Commande-Shell
+cd .. && cd /Users/mac/Desktop/projet/Interpreteur-De-Commande-Shell
+&& cd /Users/mac/Desktop/projet/Interpreteur-De-Commande-Shell
+cd /Users/mac/Desktop/projet/Interpreteur-De-Commande-Shell
+cd /Users/mac/Desktop/projet/Interpreteur-De-Commande-Shell && cd ..
+cd .. && ls
+quit
+quit
+quit
+quit
+quit
+cd .. && ls
+quit
+quit
+cd .. && ls
+quit
+ls ; c..
+ls ; cd ..
+ls ; pwd
+quit
+quit
+quit
+quit
+cd && ls
+cd .. && ls
+quit
+quit
+help
+cd .. ; ls
+cd .. || pwd
+cd ..
+quit
+cd ?? && h
+cd ..  && h
+cd ..  && 
+quit
+quit
+quit
+quit
+cd .. && pwd
+quit
+cd .. && pwd
+quit
+cd .. && ls
+quit
+quit
+cd .. && ls
+quit
+cd .. && ls
+cd .. && ls
+quit
+cd .. && ls
+quit
+quit
+cd .. && ls
+quit
+quit
+cd .. && ls
+quit
+quit
+quit
+cd .. && ls
+cd .. ; ls
+quit
+ls && cd ..
+quit
+help
+quit
+cd .. && ls
+quit
+cd .. && ls
+cd .. && ls
+quit
+cd .. && ls
+quit
+cd .. && ls
+ls && cd ..
+ls &&
+&& ls
+ls | wc
+l | wc
+cd /Users/mac/Desktop/projet/Interpreteur-De-Commande-Shell
+cd Files
+wc t.bash
+wc -l t.bash
+cd | wc
+cd .. | wc
+cd .. | pwd
+cd .. || pwd
+cd .. || cd ..
+pwd || cd ..
+quit
+quit
+pwd || cd ..
+quit
+pw || cd ..
+quit
+pwd || cd ..
+cd .. || cd ..
+cd . || cd ..
+cd . || pwd
+quit
+quit
+quit
+quit
+pwd || cd ..
+pw || cd ..
+quit
+cd .. || cd ..
+pwd
+cd hj || cd ..
+cd kjbkv || cd ..
+cd kjbkv || cd hjb
+quit
+quit
+quit
+quit
+quit
+quit
+quit
+pwd || cd ..
+pw || cd ..
+quit
+p || cd ..
+p || cd ..
+djhjd || cd ..
+quit
+pwd || cd ..
+pwjdsd || cd ..
+quit
+exit(0);
+pwjdsd || cd ..
+quit
+wjdsd || cd .
+wjdsd || cd 
+quit
+wjdsd || cd ..
+quit
+wjdsd || cd ..
+quit
+wjdsd || cd ..
+wjdsd || cd ..
+quit
+quit
+quit
+wjdsd || cd ..
+wjdsd || cd ..
+quit
+wjdsd || pwd
+wjdsd || pxs
+quit
+wjdsd || cd ..
+quit
+wjdsd || cd ..
+wjdsd || cd ..
+wjdsd || cd ..
+quit
+wjdsd || cd /Users/mac/Desktop
+quit
+quit
+    printf("%s %s",CommandOne[0],CommandOne[1]);
+wjdsd || cd /Users/mac/Desktop
+quit
+wjdsd || cd /Users/mac/Desktop
+quit
+wjdsd || cd /Users/mac/Desktop
+wjdsd || cd /Users/mac/Desktop
+quit
+wjdsd || cd /Users/mac/Desktop
+quit
+        printf("%d %d ",Detect,DetectPathHandler);
+wjdsd || cd /Users/mac/Desktop
+quit
+wjdsd || cd /Users/mac/Desktop
+quit
+wjdsd || cd /Users/mac/Desktop
+wjdsd || cd /Users/mac/Desktop
+quit
+PathHandler(CommandTwo)
+wjdsd || cd /Users/mac/Desktop
+quit
+quit
+wjdsd || cd /Users/mac/Desktop
+wjdsd || pwd
+cd .. || cd /Users/mac/Desktop
+cd .. || cd /Users/mac/Desktop
+quit
+wjdsd || cd /Users/mac/Desktop
+cd .. || cd /Users/mac/Desktop
+quit
+quit
+cd .. || cd /Users/mac/Desktop
+quit
+quit
+cd .. || cd /Users/mac/Desktop
+quit
+cd .. && ls
+quit
+ls | wc
+quit
+cscs | wc
+cd | wc
+cd .. && cd ..
+quit
+quit
+cd .. && cd ..
+cd .. || pwd
+quit
+p || cd ..
+quit
+quit
+cd .. && cd ..
+cd .. && cd ..
+quit
+cd .. && cd ..
+quit
+cd .. && cd ..
+quit
