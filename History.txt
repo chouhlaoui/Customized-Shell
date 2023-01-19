@@ -299,3 +299,5 @@ pwd || l
 quit
 quit
 quit
+TestFile.bash
+quit

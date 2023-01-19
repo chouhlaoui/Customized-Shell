@@ -24,7 +24,7 @@ void Executing(char* line)
                         }
                         else if (DetectPathHandler == -1)
                         {
-                            printf("Wrong Path\n");
+                            printf("Wrong Path \n");
                         }
                     }
 

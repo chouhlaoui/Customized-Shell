@@ -5,7 +5,6 @@
 #include<sys/wait.h>
 #include<readline/readline.h>
 #include<readline/history.h>
-#include <errno.h>
 #include <fcntl.h>
 
 #define LineLength 1000
@@ -17,7 +16,6 @@ int ParseSimple(char* str, char** parsed,char* delim);
 int PathHandler(char** parsed);
 void openHelp(void);
 void ShowHistory(void);
-
 
 int IsItFile(char* line);
 void DealWithFiles(FILE *fp);

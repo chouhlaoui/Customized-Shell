@@ -18,7 +18,7 @@ void DealWithFiles(FILE *fp)
         printf("\n%s", ligne);
         printf("\n_____________________________________________________________________________\n");
         memset(ligne,'\0',LineLength);
-        sleep(0.5);
+        sleep(1);
     }
     fclose(fp);
 }

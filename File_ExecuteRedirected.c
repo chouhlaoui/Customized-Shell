@@ -38,7 +38,10 @@ if(N==2)
 
         }
 	} 
-    while (wait(NULL)!= -1 || errno != ECHILD );
+    else
+    {
+        wait(NULL);
+    }
 }
 else{
     printf("An inadequate number of arguments in the command prompt\n");
