@@ -1,6 +1,7 @@
 #include"file.h"
 
-void ExecuteAllCommand(char** parsedArgs,int N){
+void ExecuteAllCommand(char** parsedArgs,int N)
+{
 
 if(N==2)
 {
@@ -11,44 +12,81 @@ if(N==2)
 
 	ParseSimple(strdup(parsedArgs[0]),CommandOne," ");
 	ParseSimple(strdup(parsedArgs[1]),CommandTwo," ");
-	
-    p1 = fork();
 
-	if (p1 < 0) 
-	{
-		printf("\nCould not fork");
-	}
+    int Detect1 = PathHandler(CommandOne);
+    if(Detect1 == 1)
+    {
+        printf("");
+    }
 
-    if (p1 == 0) 
-	{
-		if (execvp(CommandOne[0],CommandOne) < 0) 
-		{
-            printf("\nCould not execute command 1..");
-            exit(1);
+    else if(Detect1 == 0)
+    {
+        p1 = fork();
+
+		if (p1 < 0) 
+        {
+	        printf("\nCould not fork");
         }
-	} 
-	
-	else
-	{
-		wait(NULL);
-		p2 = fork();
-            if (p2 == 0) 
+
+        if(p1 == 0)
+        {
+            if (execvp(CommandOne[0], CommandOne) < 0) 
             {
-                if (execvp(CommandTwo[0],CommandTwo) < 0) 
-                {
-			        printf("\nCould not execute command 2..");
-                    exit(1);
-    		    }
-            }
-            else 
+		        printf("\nCould not execute Command 1 !");
+		    }
+        }
+
+        else
+        {
+            wait(NULL);
+        }
+    }
+
+    else
+    {
+        printf("\nCould not execute Command 1 !");
+    }
+
+
+    int Detect2 = PathHandler(CommandTwo);
+    if(Detect2 == 1)
+    {
+        printf("");
+    }
+
+    else if(Detect2 == 0)
+    {
+        p2 = fork();
+
+		if (p2 < 0) 
+        {
+	        printf("\nCould not fork");
+        }
+
+        if(p2 == 0)
+        {
+            if (execvp(CommandTwo[0], CommandTwo) < 0) 
             {
-                wait(NULL);
-	        }
-	}  
-}  
-else{
-	printf("An inadequate number of arguments in the command prompt");
+		        printf("\nCould not execute Command 2 !");
+		    }
+        }
+
+        else
+        {
+            wait(NULL);
+        }
+    }
+
+    else
+    {
+        printf("\nCould not execute Command 2 !");
+    }
+    
+}
+
+else
+{
+    printf("An inadequate number of arguments in the command prompt");
 }
 
 }
-

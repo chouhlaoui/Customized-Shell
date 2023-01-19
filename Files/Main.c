@@ -5,6 +5,7 @@ int main (void)
 {
 
 char inputString[LineLength];
+char result[LineLength];
 
 while (1)
 {  
@@ -12,10 +13,10 @@ while (1)
     if (TakeInput(inputString)){
         continue;
     }
-			
-    if(strcmp(inputString,"quit")!=0)
+
+    if(strcmp(strtoupper(result, inputString),"QUIT")!=0)
     {
-        if(strcmp(inputString,"History")!=0)
+        if(strcmp(strtoupper(result, inputString),"HISTORY")!=0)
         {
             if (IsItFile(inputString)==1)
             {

@@ -4,114 +4,118 @@ void ExecuteOrCommands(char** parsedArgs,int N){
 if(N==2)
 {
 	int p1, p2;
-    int fd[2];
 
 	char *CommandOne[LineLength] ;
     char *CommandTwo[LineLength];
 
 	ParseSimple(strdup(parsedArgs[0]),CommandOne," ");
 	ParseSimple(strdup(parsedArgs[1]),CommandTwo," ");
-
-    if (pipe(fd) < 0) 
-    {
-		printf("\nPipe could not be initialized");
-	}
-
-    p1 = fork();
-
-	if (p1 < 0) 
-    {
-		printf("\nCould not fork");
-	}
     
-    if (p1 == 0) 
+    int Detect1 = PathHandler(CommandOne);
+    
+    if(Detect1 == 1)
     {
-        int CommandState;
-        
-        close(fd[0]);
-        int DetectPathHandler = PathHandler(CommandOne);
-        if (DetectPathHandler==0) 
-        {   
+        printf("");
+    }
+
+    else if(Detect1 == 0)
+    {   
+        p1 = fork();
+
+		if (p1 < 0) 
+        {
+	        printf("\nCould not fork");
+        }
+
+        if(p1 == 0)
+        {
             if (execvp(CommandOne[0], CommandOne) < 0) 
             {
-			    CommandState = 0;
-                write(fd[1],&CommandState,sizeof(CommandState));
-                close(fd[1]);
-			    exit(1);
-		    }
-        }
-        else if (DetectPathHandler == -1)
-        {
-            CommandState = 0;
-            write(fd[1],&CommandState,sizeof(CommandState));
-            close(fd[1]);
-		    exit(1);
-        }
-        else{
-            CommandState = 1;
-            write(fd[1],&CommandState,sizeof(CommandState));
-            close(fd[1]);
-		    exit(0);
-        }
-		
-        
-	} 
-    else {
-		wait(NULL);
+                int Detect2 = PathHandler(CommandTwo);
+                if(Detect2 == 1)
+                {
+                    printf("");
+                }
 
-        if (strcmp(CommandOne[0],"cd")==0)
-        {
-            chdir(CommandOne[1]); 
-            char ch[100];
-            getcwd(ch,100);
-        }
-        
-		int ReceivedState = 1;
-        close(fd[1]);
+                else if(Detect2 == 0)
+                {   
+                    p2 = fork();
 
-		if (read(fd[0],&ReceivedState,sizeof(ReceivedState))==-1)
-		{
-			ReceivedState=1;
+		            if (p2 < 0) 
+                    {
+	                    printf("\nCould not fork");
+                    }
+
+                    if(p2 == 0)
+                    {
+                        if (execvp(CommandTwo[0], CommandTwo) < 0) 
+                        {
+                            printf("\nCould not execute any command ..");
+                            exit(1);
+                        }     
+		            }
+
+                    else
+                    {
+                        wait(NULL);
+                    }
+                }
+                else
+                {
+                    printf("\nCould not execute any command ..");
+                }
+                exit(1);
+            }     
 		}
-
-		close(fd[0]);
         
-        if(ReceivedState == 0)
+
+        else
         {
+            wait(NULL);
+        }
+    }
+
+    else
+    {
+        int Detect2 = PathHandler(CommandTwo);
+        if(Detect2 == 1)
+        {
+            printf("");
+        }
+
+        else if(Detect2 == 0)
+        {   
             p2 = fork();
 
-		    if (p2 < 0) 
+	        if (p2 < 0) 
             {
-			    printf("\nCould not fork");
-		    }
-		
-		    if (p2 == 0) 
-            {
-                int DetectPathHandler = PathHandler(CommandTwo);
-                if (DetectPathHandler==0) 
-                {   
-                    if (execvp(CommandTwo[0], CommandTwo) < 0) 
-                    {
-				        printf("\nCould not execute any command ..");
-			        }
-                }
-                else if (DetectPathHandler == -1)
-                {
-                    printf("Wrong Path");
-                }
-                
+	            printf("\nCould not fork");
             }
-			   
-            wait(NULL);
 
+            if(p2 == 0)
+            {
+                if (execvp(CommandTwo[0], CommandTwo) < 0) 
+                {
+                    printf("\nCould not execute any command ..");
+                    exit(1);
+                }     
+		    }
+
+            else
+            {
+                wait(NULL);
+            }
         }
-        
-        
-        
-	}
+        else
+        {
+            printf("\nCould not execute any command ..");
+        }
+    }
+    
+}
 
-}  
-else{
+else
+{
     printf("An inadequate number of arguments in the command prompt");
 }
 

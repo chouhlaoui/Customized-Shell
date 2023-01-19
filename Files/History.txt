@@ -251,3 +251,84 @@ cd .. && cd ..
 quit
 cd .. && cd ..
 quit
+quit
+cd .. && cd ..
+cd .. && cd ..
+quit
+cd .. && cd ..
+cd .. || hd 
+dc || hd
+pw || cd ..
+quit
+pw && cd ..
+p && cd ..
+quit
+p && cd ..
+cd .. && p
+quit
+quit
+cd .. && p
+quit
+quit
+cd .. && p
+quit
+quit
+cd .. && cd ..
+quit
+cd .. && cd ..
+quit
+cd .. && p
+quit
+  ls
+cd .. || pwd
+quit
+p || pwd
+p || pw
+cd .. ; ls
+cd .. && help
+quit
+quit
+quit
+cd .. ; ls
+quit
+cd .. && ls
+quit
+cd .. ; help
+quit
+cd .. && help
+quit
+ls
+cd .. && ls
+pwd
+help
+help ; ls
+pwd ; ls
+pwd || ls
+pw || ls
+pw || l
+pwd || l
+quit
+quit
+quit
+pwd || l
+pw || ls
+quit
+t.bash
+quit
+History
+quit
+QUit
+quit
+quit
+Quit
+quit
+QUIT
+quit
+quit
+quit
+Quit
+quit
+quit
+Quit
+QUit
+HIstory

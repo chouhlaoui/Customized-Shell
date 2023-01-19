@@ -12,6 +12,7 @@
 
 #define LineLength 1000
 
+char * strtoupper( char * dest, const char * src );
 void PrintDir(void); 
 int TakeInput(char* str); 
 int ParseSimple(char* str, char** parsed,char* delim); 
