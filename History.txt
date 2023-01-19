@@ -301,3 +301,16 @@ quit
 quit
 TestFile.bash
 quit
+quit
+help
+quit
+clear
+quit
+cd .. && l
+cd ..
+cd && ls
+TestFile.bash
+cd /Users/mac/Desktop/projet/Interpreteur-De-Commande-Shell
+TestFile.bash
+help
+quit

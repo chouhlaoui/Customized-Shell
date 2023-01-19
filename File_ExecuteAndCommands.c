@@ -128,6 +128,11 @@ if(N==2)
                         {
                             waitpid(p2,NULL,0);
                         }
+                    }
+                    
+                    else
+                    {
+                        printf("\nCould not execute command 2..\n");
                     }     
             }
             
