@@ -266,17 +266,6 @@ quit
 p && cd ..
 cd .. && p
 quit
-quit
-cd .. && p
-quit
-quit
-cd .. && p
-quit
-quit
-cd .. && cd ..
-quit
-cd .. && cd ..
-quit
 cd .. && p
 quit
   ls
@@ -310,25 +299,3 @@ pwd || l
 quit
 quit
 quit
-pwd || l
-pw || ls
-quit
-t.bash
-quit
-History
-quit
-QUit
-quit
-quit
-Quit
-quit
-QUIT
-quit
-quit
-quit
-Quit
-quit
-quit
-Quit
-QUit
-HIstory

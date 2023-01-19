@@ -5,7 +5,6 @@ int main (void)
 {
 
 char inputString[LineLength];
-char result[LineLength];
 
 while (1)
 {  
@@ -14,14 +13,14 @@ while (1)
         continue;
     }
 
-    if(strcmp(strtoupper(result, inputString),"QUIT")!=0)
+    if(strcmp(inputString,"quit")!=0)
     {
-        if(strcmp(strtoupper(result, inputString),"HISTORY")!=0)
+        if(strcmp(inputString,"history")!=0)
         {
             if (IsItFile(inputString)==1)
             {
                 FILE *fp=fopen(inputString,"r");
-                if (fp==NULL)
+                if (fp == NULL)
                 {
                     printf("File Not Found ");
                 }

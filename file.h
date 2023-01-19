@@ -1,9 +1,7 @@
-#include <errno.h>
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
 #include<unistd.h>
-#include<sys/types.h>
 #include<sys/wait.h>
 #include<readline/readline.h>
 #include<readline/history.h>
@@ -12,7 +10,6 @@
 
 #define LineLength 1000
 
-char * strtoupper( char * dest, const char * src );
 void PrintDir(void); 
 int TakeInput(char* str); 
 int ParseSimple(char* str, char** parsed,char* delim); 
@@ -40,5 +37,3 @@ int CheckRedirectFile(char *line);
 int CheckNext(char *line);
 int CheckOr(char *line);
 int CheckAnd(char *line);
-
-

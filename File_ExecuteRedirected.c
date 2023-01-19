@@ -13,7 +13,7 @@ if(N==2)
 
     if (p < 0) 
     {
-		printf("\nCould not fork");
+		printf("\nCould not fork\n");
 	}
 
 	if (p == 0) 
@@ -33,7 +33,7 @@ if(N==2)
 		if (execvp(Command[0],Command) < 0) 
         {
 
-			printf("\nCould not execute command ..");
+			printf("\nCould not execute command ..\n");
             exit(1);
 
         }
@@ -41,7 +41,7 @@ if(N==2)
     while (wait(NULL)!= -1 || errno != ECHILD );
 }
 else{
-    printf("An inadequate number of arguments in the command prompt");
+    printf("An inadequate number of arguments in the command prompt\n");
 }   
        
 }  

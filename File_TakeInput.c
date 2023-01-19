@@ -10,11 +10,11 @@ int TakeInput(char* str)
 	{
 		add_history(buf);
 		strcpy(str, buf);
-		FILE *fp=fopen("/Users/mac/Desktop/projet/Interpreteur-De-Commande-Shell/Files/History.txt","a+");
+		FILE *fp=fopen("/Users/mac/Desktop/projet/Interpreteur-De-Commande-Shell/History.txt","a+");
        
 	    if (fp==NULL)
         {
-            printf("File Not Found");
+            printf("File Not Found\n");
         }
 		
 		fputs("\n", fp) ;

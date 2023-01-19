@@ -3,11 +3,11 @@ void ShowHistory(void)
 {
     int NombreCmdHistorique = 1;
 
-    FILE *fp=fopen("/Users/mac/Desktop/projet/Interpreteur-De-Commande-Shell/Files/History.txt","r");
+    FILE *fp=fopen("/Users/mac/Desktop/projet/Interpreteur-De-Commande-Shell/History.txt","r");
     
     if (fp==NULL)
     {
-        printf("File Not Found");
+        printf("File Not Found\n");
     }
     
     printf("\n") ;

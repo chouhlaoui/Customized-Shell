@@ -7,13 +7,13 @@ void ExecuteOneCommand(char** parsedArgs){
     {
 		if (execvp(parsedArgs[0], parsedArgs) < 0) 
 		{
-			printf("\nCould not execute command..");
+			printf("\nCould not execute command..\n");
 		}
 	} 
 
     else 
     {
-		wait(NULL);
+		waitpid(id,NULL,0);
 	}
        
 }  

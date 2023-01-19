@@ -16,19 +16,19 @@ if(N==2)
 
     if (pipe(fd) < 0) 
     {
-		printf("\nPipe could not be initialized");
+		printf("\nPipe could not be initialized\n");
 	}
 
     if (pipe(Executed) < 0) 
     {
-		printf("\nPipe could not be initialized");
+		printf("\nPipe could not be initialized\n");
 	}
 
     p1 = fork();
     
 	if (p1 < 0) 
     {
-		printf("\nCould not fork");
+		printf("\nCould not fork\n");
 	}
     
     if (p1 == 0) 
@@ -42,7 +42,7 @@ if(N==2)
 
         if (execvp(CommandOne[0], CommandOne) < 0) 
         {
-			printf("\nCould not execute command ..");
+			printf("\nCould not execute command ..\n");
             CommandState = 0;
             write(Executed[1],&CommandState,sizeof(CommandState));
             close(Executed[1]);
@@ -68,7 +68,7 @@ if(N==2)
     
         if (p2 < 0) 
         {
-		    printf("\nCould not fork");
+		    printf("\nCould not fork\n");
 	    }
 
         if (p2 == 0) 
@@ -79,7 +79,7 @@ if(N==2)
 
             if (execvp(CommandTwo[0], CommandTwo) < 0) 
             {
-		    	printf("\nCould not execute piping command ..");
+		    	printf("\nCould not execute piping command ..\n");
                 exit(1);
 	    	}
         
@@ -88,7 +88,7 @@ if(N==2)
     }
     else
     {
-        printf("pipe can be done");
+        printf("pipe cannot be done\n");
     }
 
     close(fd[1]);
@@ -98,6 +98,6 @@ if(N==2)
 }
 else
 {
-    printf("An inadequate number of arguments in the command prompt");
+    printf("An inadequate number of arguments in the command prompt\n");
 }   
 }

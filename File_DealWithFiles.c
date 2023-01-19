@@ -3,23 +3,22 @@
 
 void DealWithFiles(FILE *fp)
 {
-    char ligne[LineLength];
-    
+    char ligne[LineLength] ;
     while(!feof(fp))
     {
-        fgets(ligne, 100, fp);
+        fgets(ligne, LineLength, fp);
         ligne[strlen(ligne)-1] = '\0';
 
-        if (strcmp(ligne, "quit") == 0)
+        if (strstr(ligne, "quit"))
         {
             break;
         }
-
-        sleep(2);
-        printf("%s", ligne);
+        
         Executing(ligne);
+        printf("\n%s", ligne);
         printf("\n_____________________________________________________________________________\n");
+        memset(ligne,'\0',LineLength);
+        sleep(0.5);
     }
-
     fclose(fp);
 }

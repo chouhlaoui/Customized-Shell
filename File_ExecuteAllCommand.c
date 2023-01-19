@@ -25,26 +25,27 @@ if(N==2)
 
 		if (p1 < 0) 
         {
-	        printf("\nCould not fork");
+	        printf("\nCould not fork\n");
         }
 
         if(p1 == 0)
         {
             if (execvp(CommandOne[0], CommandOne) < 0) 
             {
-		        printf("\nCould not execute Command 1 !");
+		        printf("\nCould not execute Command 1 !\n");
+                exit(1);
 		    }
         }
 
         else
         {
-            wait(NULL);
+            waitpid(p1,NULL,0);
         }
     }
 
     else
     {
-        printf("\nCould not execute Command 1 !");
+        printf("\nCould not execute Command 1 !\n");
     }
 
 
@@ -60,33 +61,35 @@ if(N==2)
 
 		if (p2 < 0) 
         {
-	        printf("\nCould not fork");
+	        printf("\nCould not fork\n");
         }
 
         if(p2 == 0)
         {
             if (execvp(CommandTwo[0], CommandTwo) < 0) 
             {
-		        printf("\nCould not execute Command 2 !");
+		        printf("\nCould not execute Command 2 !\n");
+                exit(1);
 		    }
         }
 
         else
         {
-            wait(NULL);
+            waitpid(p2,NULL,0);
         }
     }
 
     else
     {
-        printf("\nCould not execute Command 2 !");
+        printf("\nCould not execute Command 2 !\n");
     }
+    
     
 }
 
 else
 {
-    printf("An inadequate number of arguments in the command prompt");
+    printf("An inadequate number of arguments in the command prompt\n");
 }
 
 }

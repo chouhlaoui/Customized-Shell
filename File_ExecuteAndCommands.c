@@ -16,7 +16,7 @@ if(N==2)
 
     if (pipe(fd) < 0) 
     {
-		printf("\nPipe could not be initialized");
+		printf("\nPipe could not be initialized\n");
 	}
 
     
@@ -37,14 +37,14 @@ if(N==2)
 
 		    if (p1 < 0) 
             {
-			    printf("\nCould not fork");
+			    printf("\nCould not fork\n");
 	        }
 
             if(p1 == 0)
             {
                 if (execvp(CommandTwo[0], CommandTwo) < 0) 
                 {
-				    printf("\nCould not execute command 2..");
+				    printf("\nCould not execute command 2..\n");
                     exit(1);
 			    }
             }
@@ -57,7 +57,7 @@ if(N==2)
 
         else
                 {
-                    printf("\nCould not Execute Second Command");
+                    printf("\nCould not Execute Second Command\n");
                 }
     
     }
@@ -86,7 +86,7 @@ if(N==2)
 
         else
         {
-            wait(NULL);
+            waitpid(p1,NULL,0);
 
             int ReceivedState = 1;
             close(fd[1]);
@@ -113,41 +113,41 @@ if(N==2)
 
 		                if (p2 < 0) 
                         {
-			                printf("\nCould not fork");
+			                printf("\nCould not fork\n");
 		                }
 
                         if(p2 == 0)
                         {
                             if (execvp(CommandTwo[0], CommandTwo) < 0) 
                             {
-				                printf("\nCould not execute command 2..");
+				                printf("\nCould not execute command 2..\n");
                                 exit(1);
 			                }
                         }
                         else
                         {
-                            wait(NULL);
+                            waitpid(p2,NULL,0);
                         }
                     }     
             }
             
             else
             {
-                printf("\nCommand 1 must be executed first !");
+                printf("\nCommand 1 must be executed first !\n");
             }
         }
     }
 
     else
     {
-        printf("\nCommand 1 must be executed first !");
+        printf("\nCommand 1 must be executed first !\n");
     }
-    
+
 }
 
 else
 {
-    printf("An inadequate number of arguments in the command prompt");
+    printf("An inadequate number of arguments in the command prompt\n");
 }
 
 }
