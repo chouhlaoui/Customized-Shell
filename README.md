@@ -1,5 +1,3 @@
-# Interpreteur-De-Commande-Shell
-
 # Customized Shell 
 
 ## Usage
