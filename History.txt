@@ -314,3 +314,20 @@ cd /Users/mac/Desktop/projet/Interpreteur-De-Commande-Shell
 TestFile.bash
 help
 quit
+cd ; ls
+quit
+cd ; ls
+quit
+cd ; ls
+quit
+cd ; ls
+cd && ls
+quit
+cd ; ls
+File_test.bash
+quit
+ls ; cd
+File_test.bash
+ls || l
+ls || 
+ls ||
